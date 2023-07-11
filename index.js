@@ -8,6 +8,11 @@ const app =express()
 app.use(express.json())
 app.use(cors())
 app.use("/user",UserRout)
+
+app.get("/",(req, res)=>{
+    res.send('welcome to bigbasket_auth')
+})
+
 app.listen(port,async()=>{
     try{
         await Connect
