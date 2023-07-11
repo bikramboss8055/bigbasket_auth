@@ -32,8 +32,8 @@ UserRout.post("/login",async(req,res)=>{
     if(data.email && data.password){
     try{
     let d=await UserModel.findOne({email:data.email})
-    console.log(d)
-    if(d){
+    if(d.email===data.email && d.password===data.password){
+        
     res.send({
         user:d.firstname,
         email:data.email,
@@ -49,7 +49,7 @@ UserRout.post("/login",async(req,res)=>{
     }
     }
     else{
-        res.status(400).send("incomplet data data")
+        res.status(400).send("incomplete data")
     }
     })
 
